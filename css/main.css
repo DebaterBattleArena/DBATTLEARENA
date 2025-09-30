@@ -1,0 +1,583 @@
+/* --- Variabel CSS & Reset Lanjutan --- */
+:root {
+    --color-dark-bg: #0d0d0d; /* Background utama sangat gelap */
+    --color-secondary-bg: #1a1a1a; /* Background elemen (kartu/list) */
+    --color-tertiary-bg: #222222; /* Background tombol/hover yang lebih gelap */
+    --color-primary-text: #ffffff;
+    --color-secondary-text: #b3b3b3; /* Teks abu-abu muda */
+    --color-accent-gold: #ffc400; /* Aksen Kuning/Emas */
+    --font-primary: 'Oswald', Impact, sans-serif; /* Menggunakan font yang lebih tebal/condensed */
+    --font-secondary: 'Roboto', Arial, sans-serif;
+    --header-height: 65px;
+}
+
+/* Menggunakan font eksternal (Anda perlu menautkan ini di <head> index.html) */
+/* Contoh: <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--color-dark-bg);
+    color: var(--color-primary-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1280px; /* Sedikit lebih lebar */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--color-primary-text);
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.2s;
+}
+
+a:hover {
+    color: var(--color-accent-gold);
+}
+
+/* Tipografi yang Agresif dan Profesional */
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-top: 45px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-secondary-bg);
+    color: var(--color-primary-text);
+}
+
+
+/* --- Header & Navigasi Mendetail --- */
+.main-header {
+    background-color: var(--color-dark-bg);
+    border-bottom: 1px solid var(--color-secondary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo {
+    font-size: 2.5em;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.desktop-nav li {
+    margin-left: 30px;
+}
+
+.desktop-nav a {
+    font-weight: bold;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+.header-actions button {
+    background: var(--color-dark-bg);
+    border: none;
+    color: var(--color-primary-text);
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+.header-actions button:hover {
+    color: var(--color-accent-gold);
+}
+
+/* --- Hero Section (Grid Layout) --- */
+.hero-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px;
+    padding: 25px 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #000; /* Kadang latar belakang sedikit lebih hitam di bagian atas */
+}
+
+/* Kartu Utama */
+.main-story-card {
+    position: relative;
+    overflow: hidden;
+    height: 500px; 
+    cursor: pointer;
+}
+
+.main-story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.main-story-card:hover .main-story-img {
+    transform: scale(1.03);
+}
+
+.story-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.0) 100%);
+}
+
+.category-tag {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.main-story-card h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.read-more-btn {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-primary-text);
+    display: inline-flex;
+    align-items: center;
+}
+.read-more-btn i {
+    margin-left: 8px;
+    color: var(--color-accent-gold);
+    transition: margin-left 0.2s;
+}
+.read-more-btn:hover i {
+    margin-left: 15px;
+}
+
+
+/* Kartu Berita Kecil */
+.sub-story-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sub-story-card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-secondary-bg);
+}
+
+.sub-story-card .sub-story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65);
+}
+
+.sub-story-card .story-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.0) 100%);
+}
+
+.sub-story-card h2 {
+    font-size: 0.95em;
+    line-height: 1.2;
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.sub-story-card h2 a:hover {
+    color: var(--color-accent-gold);
+}
+
+
+/* --- Coming Soon Banner (Timer) --- */
+.coming-soon-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-accent-gold);
+    color: var(--color-dark-bg);
+    padding: 20px 30px;
+    margin: 30px auto;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+}
+
+.timer-display {
+    display: flex;
+    align-items: baseline;
+    font-size: 1.1em;
+}
+
+.timer-label {
+    font-weight: 900;
+    margin-right: 30px;
+    font-size: 1.1em;
+}
+
+.countdown-time {
+    display: flex;
+    align-items: flex-end;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3em;
+    line-height: 0.8;
+    margin-right: 25px;
+    font-weight: 900;
+}
+
+.time-unit .unit-label {
+    font-size: 0.3em;
+    font-weight: 700;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.past-events-link {
+    color: var(--color-dark-bg);
+    font-size: 0.9em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.past-events-link:hover {
+    color: #000;
+}
+.past-events-link i {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.coming-soon-banner .buy-tickets-btn {
+    background-color: var(--color-dark-bg);
+    color: var(--color-accent-gold);
+    padding: 12px 25px;
+    font-weight: 700;
+    border: 2px solid var(--color-dark-bg);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+}
+.coming-soon-banner .buy-tickets-btn:hover {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-accent-gold);
+}
+
+
+/* --- Featured (Oumar Kane) --- */
+.featured-section {
+    padding: 20px 0;
+}
+
+.featured-content {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: var(--color-secondary-bg);
+}
+
+.featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Lebih gelap untuk teks */
+}
+
+.featured-text-box {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.featured-text-box h3 {
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+/* --- Latest Stories & Video (Gaya List & Grid) --- */
+.latest-stories-section, .videos-section {
+    padding: 20px 0;
+}
+
+.story-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-secondary-bg);
+    display: flex;
+    align-items: center;
+}
+
+.story-item a {
+    flex-grow: 1;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.story-category, .story-date {
+    font-size: 0.75em;
+    margin-right: 15px;
+    color: var(--color-secondary-text);
+    font-weight: 700;
+}
+
+.story-category {
+    color: var(--color-accent-gold);
+}
+
+.more-stories-btn, .more-videos-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-top: 30px;
+    background-color: var(--color-secondary-bg);
+    color: var(--color-primary-text);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+.more-stories-btn:hover, .more-videos-btn:hover {
+    background-color: var(--color-tertiary-bg);
+}
+
+/* Video Grid (Replikasi Visual 0:05) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tiga kolom di desktop */
+    gap: 20px;
+}
+
+.video-item {
+    background-color: var(--color-secondary-bg);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-info a {
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 1em;
+    display: block;
+    margin-top: 5px;
+    text-transform: none; /* Judul video biasanya tidak uppercase */
+}
+
+/* --- Footer & Scroll To Top --- */
+.main-footer {
+    background-color: var(--color-dark-bg);
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 2px solid var(--color-secondary-bg);
+}
+
+.scroll-to-top {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 25px;
+    color: var(--color-secondary-text);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+}
+.scroll-to-top:hover {
+    color: var(--color-primary-text);
+    border-bottom: 1px solid var(--color-primary-text);
+}
+
+.social-links a {
+    font-size: 1.5em;
+    margin: 0 10px;
+    opacity: 0.7;
+}
+.social-links a:hover {
+    color: var(--color-accent-gold);
+    opacity: 1;
+}
+
+.main-footer p {
+    font-size: 0.75em;
+    margin-top: 20px;
+    color: var(--color-secondary-text);
+}
+
+.footer-links a {
+    font-size: 0.8em;
+    margin: 0 10px;
+    color: var(--color-secondary-text);
+    text-transform: uppercase;
+}
+
+
+/* --- Floating Ticket Banner (Sticky) --- */
+.floating-ticket-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    color: var(--color-primary-text);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    font-size: 0.9em;
+    border-top: 3px solid var(--color-accent-gold);
+}
+
+.ticket-info {
+    flex-grow: 1;
+    margin-right: 20px;
+    font-weight: 700;
+}
+
+.floating-ticket-banner .buy-tickets-btn {
+    background-color: var(--color-accent-gold);
+    color: #000;
+    padding: 10px 20px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+}
+
+.close-banner-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary-text);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 0 10px;
+    opacity: 0.7;
+}
+.close-banner-btn:hover {
+    color: var(--color-accent-gold);
+    opacity: 1;
+}
+
+/* --- Media Queries (Responsif - akan lebih detail di responsive.css) --- */
+@media (max-width: 1024px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .main-story-card {
+        height: 350px;
+    }
+    .sub-story-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: unset;
+    }
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-toggle-btn {
+        display: block;
+    }
+
+    .coming-soon-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .timer-display {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .time-unit {
+        font-size: 2.2em;
+    }
+    
+    .past-events-link, 
+    .coming-soon-banner .buy-tickets-btn {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+    }
+    
+    .floating-ticket-banner {
+        padding: 10px;
+    }
+    .ticket-info {
+        font-size: 0.8em;
+    }
+}
