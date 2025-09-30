@@ -125,10 +125,33 @@ h2 {
 .header-actions button:hover {
     color: var(--color-accent-gold);
 }
+
 /* Menyembunyikan tombol menu toggle di desktop */
 .menu-toggle-btn {
     display: none;
+    /* PASTIKAN tombol berada di atas mobile-nav */
+    z-index: 1001; 
 }
+
+/* PERBAIKAN MENU HAMBURGER */
+.menu-icon-close {
+    /* Sembunyikan ikon 'X' secara default */
+    display: none;
+}
+
+/* KETIKA MENU TERBUKA (class .menu-open ditambahkan ke tag body oleh JS) */
+body.menu-open .menu-icon-open {
+    /* Sembunyikan ikon hamburger (tiga baris) */
+    display: none;
+}
+
+body.menu-open .menu-icon-close {
+    /* Tampilkan ikon X (tutup) */
+    display: block;
+    color: var(--color-accent-gold); 
+}
+/* AKHIR PERBAIKAN MENU HAMBURGER */
+
 @media (max-width: 768px) {
     .desktop-nav {
         display: none;
@@ -143,18 +166,20 @@ h2 {
 .mobile-nav {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0; 
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Gunakan vh agar pasti penuh */
     background-color: var(--color-dark-bg);
     z-index: 999;
-    transform: translateX(-100%); 
+    /* Diubah agar sembunyi ke kanan, dan muncul dari kanan ke kiri */
+    transform: translateX(100%); 
     transition: transform 0.4s ease-in-out;
     padding-top: var(--header-height);
     overflow-y: auto;
 }
 
-.mobile-nav.active {
+/* Diubah: Gunakan body.menu-open untuk mengaktifkan menu */
+body.menu-open .mobile-nav {
     transform: translateX(0);
 }
 
@@ -183,15 +208,17 @@ h2 {
 
 .mobile-submenu {
     list-style: none;
+    /* Diubah: max-height: 0 lebih baik di-set di JS (submenu.style.maxHeight) untuk transisi CSS yang lebih fleksibel */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
     background-color: var(--color-secondary-bg);
 }
 
-.mobile-submenu.active {
+/* Kelas .active di submenu tidak lagi digunakan, diganti dengan inline style max-height dari JS */
+/* .mobile-submenu.active {
     max-height: 300px;
-}
+} */
 
 .mobile-submenu li a {
     padding: 10px 0 10px 45px;
@@ -256,6 +283,26 @@ h2 {
 .main-story-card:hover .main-story-img {
     transform: scale(1.03);
 }
+
+/* Perbaikan untuk gambar error (placeholder) */
+.image-error-placeholder {
+    background-color: var(--color-secondary-bg); /* Beri latar belakang abu gelap */
+    /* Opsional: Tampilkan teks 'Gambar Hilang' menggunakan pseudo-element */
+    /* position: relative; */
+}
+/* Contoh:
+.image-error-placeholder::after {
+    content: "GAMBAR HILANG";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-accent-gold);
+    font-family: var(--font-primary);
+    font-size: 1.5em;
+}
+*/
+/* Akhir Perbaikan Gambar Error */
 
 .story-overlay {
     position: absolute;
