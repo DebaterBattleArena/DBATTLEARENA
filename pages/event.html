@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - ONE Championship Clone</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content container">
+            <a href="../index.html" class="logo">ONE</a>
+            <div class="header-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="menu-toggle-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="events-main">
+        <div class="container">
+            <h1 class="page-title">UPCOMING & PAST EVENTS</h1>
+
+            <nav class="events-tab-navigation">
+                <button class="event-tab-btn active" data-filter="upcoming">UPCOMING EVENTS</button>
+                <button class="event-tab-btn" data-filter="past">PAST EVENTS</button>
+            </nav>
+
+            <section class="events-list-section active" id="upcoming-events-section">
+                <h2 class="section-heading">ACARA MENDATANG</h2>
+                <div class="events-grid" id="upcoming-events-grid">
+                    <article class="event-card upcoming-event">
+                        <div class="event-image-area">
+                            <img src="../img/event-banner-mock-1.jpg" alt="Event Banner" class="event-banner-img">
+                            <div class="event-type-tag">ONE FIGHT NIGHT</div>
+                            <span class="event-status">LIVE ON PRIME VIDEO</span>
+                        </div>
+                        <div class="event-info-box">
+                            <span class="event-date">SABTU, 4 OKT 2025</span>
+                            <h3 class="event-title"><a href="event-detail.html?id=101">ONE Fight Night 37: Pranchai vs. Di Bella II</a></h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Lumpinee Stadium, Bangkok, Thailand</p>
+                            <a href="#" class="btn-tickets">BUY TICKETS <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    </div>
+            </section>
+
+            <section class="events-list-section" id="past-events-section">
+                <h2 class="section-heading">ACARA YANG SUDAH LALU</h2>
+                <div class="events-grid" id="past-events-grid">
+                    <article class="event-card past-event">
+                        <div class="event-image-area">
+                            <img src="../img/event-banner-mock-2.jpg" alt="Event Banner" class="event-banner-img">
+                            <div class="event-type-tag past">ONE 172</div>
+                        </div>
+                        <div class="event-info-box">
+                            <span class="event-date">SABTU, 7 SEP 2025</span>
+                            <h3 class="event-title"><a href="event-detail.html?id=102">ONE 172: Lineker vs. Andrade</a></h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Singapore Indoor Stadium</p>
+                            <a href="#" class="btn-highlights">WATCH HIGHLIGHTS <i class="fas fa-video"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/events.js"></script> </body>
+</html>
