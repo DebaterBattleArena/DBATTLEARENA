@@ -1,0 +1,295 @@
+/* ================================================= */
+/* --- CSS Khusus Halaman Atlet & Peringkat --- */
+/* ================================================= */
+
+.page-title {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: var(--color-accent-gold); /* Judul Halaman Lebih Menonjol */
+    letter-spacing: 2px;
+}
+
+/* --- Kontrol Atlet (Search & Filter) --- */
+.athlete-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-secondary-bg);
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 40px; /* Ruang untuk ikon */
+    border: 1px solid var(--color-tertiary-bg);
+    background-color: var(--color-dark-bg);
+    color: var(--color-primary-text);
+    font-size: 1em;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-secondary-text);
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+}
+
+.custom-select {
+    padding: 10px 15px;
+    background-color: var(--color-dark-bg);
+    color: var(--color-primary-text);
+    border: 1px solid var(--color-tertiary-bg);
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Menyembunyikan panah default di beberapa browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px auto;
+    padding-right: 30px;
+}
+
+/* --- Grid Atlet (Replikasi Tampilan Kartu) --- */
+.athlete-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-bottom: 50px;
+}
+
+.athlete-card {
+    display: block;
+    background-color: var(--color-secondary-bg);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.athlete-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-image-wrapper {
+    height: 350px; /* Ketinggian kartu visual yang kuat */
+    overflow: hidden;
+}
+
+.athlete-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.athlete-card:hover .athlete-img {
+    filter: brightness(1.0);
+    transform: scale(1.05);
+}
+
+.athlete-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.athlete-name {
+    font-family: var(--font-primary);
+    font-size: 1.4em;
+    display: block;
+    text-transform: uppercase;
+    color: var(--color-primary-text);
+    line-height: 1.2;
+}
+
+.athlete-class {
+    font-size: 0.8em;
+    color: var(--color-accent-gold);
+    display: block;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+
+/* --- Sistem Peringkat (Rankings) --- */
+.ranking-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-secondary-text);
+}
+
+/* Navigasi Tab Peringkat */
+.weight-class-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-secondary-bg);
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 15px 25px;
+    color: var(--color-secondary-text);
+    font-family: var(--font-primary);
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 3px solid transparent;
+    margin: 0 5px;
+}
+
+.tab-button:hover {
+    color: var(--color-primary-text);
+}
+
+.tab-button.active {
+    color: var(--color-accent-gold);
+    border-bottom: 3px solid var(--color-accent-gold);
+}
+
+/* Konten Divisi Peringkat */
+.ranking-division {
+    display: none;
+    padding: 20px 0;
+}
+
+.ranking-division.active {
+    display: block;
+}
+
+.division-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--color-primary-text);
+    border-bottom: none;
+}
+
+/* Kartu Juara Dunia (CHAMPION) */
+.champion-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000; /* Hitam solid */
+    border: 2px solid var(--color-accent-gold);
+    padding: 15px 25px;
+    margin-bottom: 30px;
+}
+
+.rank-label {
+    font-size: 1.2em;
+    font-family: var(--font-primary);
+    color: var(--color-accent-gold);
+}
+
+.champion-name {
+    font-size: 1.5em;
+    font-family: var(--font-primary);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.champion-belt {
+    color: var(--color-accent-gold);
+    font-weight: 700;
+}
+
+/* Daftar Peringkat */
+.ranked-list {
+    background-color: var(--color-secondary-bg);
+    padding: 10px 0;
+}
+
+.ranked-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--color-tertiary-bg);
+    transition: background-color 0.2s;
+}
+
+.ranked-item:last-child {
+    border-bottom: none;
+}
+
+.ranked-item:hover {
+    background-color: var(--color-tertiary-bg);
+}
+
+.rank-number {
+    font-size: 1.8em;
+    font-family: var(--font-primary);
+    width: 60px; /* Lebar tetap untuk kolom peringkat */
+    color: var(--color-accent-gold);
+}
+
+.ranked-athlete {
+    flex-grow: 1;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.athlete-country {
+    font-size: 0.9em;
+    color: var(--color-secondary-text);
+    font-weight: 700;
+}
+
+/* Media Query untuk Responsifitas Peringkat */
+@media (max-width: 600px) {
+    .athlete-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar {
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .custom-select {
+        width: 100%;
+    }
+
+    .champion-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .champion-name {
+        margin: 10px 0;
+    }
+    
+    .rank-number {
+        font-size: 1.5em;
+        width: 40px;
+    }
+}
