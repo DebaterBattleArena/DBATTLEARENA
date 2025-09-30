@@ -1,17 +1,640 @@
-/* ================================================= */
-/* --- CSS Khusus Halaman Atlet & Peringkat --- */
-/* ================================================= */
+/* --- Variabel CSS & Reset Lanjutan --- */
+:root {
+    --color-dark-bg: #0d0d0d;
+    --color-secondary-bg: #1a1a1a;
+    --color-tertiary-bg: #222222;
+    --color-primary-text: #ffffff;
+    --color-secondary-text: #b3b3b3;
+    --color-accent-gold: #ffc400;
+    --font-primary: 'Oswald', Impact, sans-serif;
+    --font-secondary: 'Roboto', Arial, sans-serif;
+    --header-height: 65px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--color-dark-bg);
+    color: var(--color-primary-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Mencegah scroll pada body saat menu aktif */
+body.menu-open {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--color-primary-text);
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.2s;
+}
+
+a:hover {
+    color: var(--color-accent-gold);
+}
+
+/* Tipografi yang Agresif dan Profesional */
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-top: 45px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-secondary-bg);
+    color: var(--color-primary-text);
+}
 
 .page-title {
     font-size: 3em;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 30px;
-    color: var(--color-accent-gold); /* Judul Halaman Lebih Menonjol */
+    color: var(--color-accent-gold);
     letter-spacing: 2px;
 }
 
-/* --- Kontrol Atlet (Search & Filter) --- */
+
+/* --- Header & Navigasi Mendetail --- */
+.main-header {
+    background-color: var(--color-dark-bg);
+    border-bottom: 1px solid var(--color-secondary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo {
+    font-size: 2.5em;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.desktop-nav li {
+    margin-left: 30px;
+}
+
+.desktop-nav a {
+    font-weight: bold;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+.header-actions button {
+    background: var(--color-dark-bg);
+    border: none;
+    color: var(--color-primary-text);
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+.header-actions button:hover {
+    color: var(--color-accent-gold);
+}
+/* Menyembunyikan tombol menu toggle di desktop */
+.menu-toggle-btn {
+    display: none;
+}
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-toggle-btn {
+        display: block;
+    }
+}
+
+
+/* --- Styling Navigasi Mobile/Off-Canvas (Langkah 18) --- */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-bg);
+    z-index: 999;
+    transform: translateX(-100%); 
+    transition: transform 0.4s ease-in-out;
+    padding-top: var(--header-height);
+    overflow-y: auto;
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+.mobile-menu-list {
+    list-style: none;
+    padding: 0 30px;
+}
+
+.mobile-menu-list > li {
+    border-bottom: 1px solid var(--color-secondary-bg);
+}
+
+.mobile-menu-list a {
+    display: block;
+    padding: 15px 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-primary-text);
+    text-transform: uppercase;
+}
+
+.mobile-menu-list a i {
+    margin-right: 15px;
+    color: var(--color-accent-gold);
+}
+
+.mobile-submenu {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: var(--color-secondary-bg);
+}
+
+.mobile-submenu.active {
+    max-height: 300px;
+}
+
+.mobile-submenu li a {
+    padding: 10px 0 10px 45px;
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--color-secondary-text);
+}
+
+.mobile-dropdown-toggle > a i {
+    float: right;
+    transition: transform 0.3s;
+}
+
+.mobile-dropdown-toggle.active > a i {
+    transform: rotate(180deg);
+}
+
+.mobile-social-footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--color-secondary-bg);
+    margin-top: 30px;
+}
+
+.mobile-social-footer a {
+    font-size: 1.8em;
+    margin: 0 15px;
+    color: var(--color-secondary-text);
+}
+
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none; 
+    }
+}
+
+/* --- Hero Section (Grid Layout) --- */
+.hero-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px;
+    padding: 25px 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+.main-story-card {
+    position: relative;
+    overflow: hidden;
+    height: 500px; 
+    cursor: pointer;
+}
+
+.main-story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.main-story-card:hover .main-story-img {
+    transform: scale(1.03);
+}
+
+.story-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.0) 100%);
+}
+
+.category-tag {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.main-story-card h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.read-more-btn {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-primary-text);
+    display: inline-flex;
+    align-items: center;
+}
+.read-more-btn i {
+    margin-left: 8px;
+    color: var(--color-accent-gold);
+    transition: margin-left 0.2s;
+}
+.read-more-btn:hover i {
+    margin-left: 15px;
+}
+
+.sub-story-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sub-story-card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-secondary-bg);
+}
+
+.sub-story-card .sub-story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65);
+}
+
+.sub-story-card .story-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.0) 100%);
+}
+
+.sub-story-card h2 {
+    font-size: 0.95em;
+    line-height: 1.2;
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.sub-story-card h2 a:hover {
+    color: var(--color-accent-gold);
+}
+
+
+/* --- Coming Soon Banner (Timer) --- */
+.coming-soon-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-accent-gold);
+    color: var(--color-dark-bg);
+    padding: 20px 30px;
+    margin: 30px auto;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+}
+
+.timer-display {
+    display: flex;
+    align-items: baseline;
+    font-size: 1.1em;
+}
+
+.timer-label {
+    font-weight: 900;
+    margin-right: 30px;
+    font-size: 1.1em;
+}
+
+.countdown-time {
+    display: flex;
+    align-items: flex-end;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3em;
+    line-height: 0.8;
+    margin-right: 25px;
+    font-weight: 900;
+}
+
+.time-unit .unit-label {
+    font-size: 0.3em;
+    font-weight: 700;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.past-events-link {
+    color: var(--color-dark-bg);
+    font-size: 0.9em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.past-events-link:hover {
+    color: #000;
+}
+.past-events-link i {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.coming-soon-banner .buy-tickets-btn {
+    background-color: var(--color-dark-bg);
+    color: var(--color-accent-gold);
+    padding: 12px 25px;
+    font-weight: 700;
+    border: 2px solid var(--color-dark-bg);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+}
+.coming-soon-banner .buy-tickets-btn:hover {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-accent-gold);
+}
+
+
+/* --- Featured Section --- */
+.featured-section {
+    padding: 20px 0;
+}
+
+.featured-content {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: var(--color-secondary-bg);
+}
+
+.featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.featured-text-box {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.featured-text-box h3 {
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+/* --- Latest Stories & Video --- */
+.latest-stories-section, .videos-section {
+    padding: 20px 0;
+}
+
+.story-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-secondary-bg);
+    display: flex;
+    align-items: center;
+}
+
+.story-item a {
+    flex-grow: 1;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.story-category, .story-date {
+    font-size: 0.75em;
+    margin-right: 15px;
+    color: var(--color-secondary-text);
+    font-weight: 700;
+}
+
+.story-category {
+    color: var(--color-accent-gold);
+}
+
+.more-stories-btn, .more-videos-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-top: 30px;
+    background-color: var(--color-secondary-bg);
+    color: var(--color-primary-text);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+.more-stories-btn:hover, .more-videos-btn:hover {
+    background-color: var(--color-tertiary-bg);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.video-item {
+    background-color: var(--color-secondary-bg);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-info a {
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 1em;
+    display: block;
+    margin-top: 5px;
+    text-transform: none;
+}
+
+
+/* --- Footer & Scroll To Top --- */
+.main-footer {
+    background-color: var(--color-dark-bg);
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 2px solid var(--color-secondary-bg);
+}
+
+.scroll-to-top {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 25px;
+    color: var(--color-secondary-text);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+}
+.scroll-to-top:hover {
+    color: var(--color-primary-text);
+    border-bottom: 1px solid var(--color-primary-text);
+}
+
+.social-links a {
+    font-size: 1.5em;
+    margin: 0 10px;
+    opacity: 0.7;
+}
+.social-links a:hover {
+    color: var(--color-accent-gold);
+    opacity: 1;
+}
+
+.main-footer p {
+    font-size: 0.75em;
+    margin-top: 20px;
+    color: var(--color-secondary-text);
+}
+
+.footer-links a {
+    font-size: 0.8em;
+    margin: 0 10px;
+    color: var(--color-secondary-text);
+    text-transform: uppercase;
+}
+
+
+/* --- Floating Ticket Banner (Sticky) --- */
+.floating-ticket-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    color: var(--color-primary-text);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    font-size: 0.9em;
+    border-top: 3px solid var(--color-accent-gold);
+}
+
+.ticket-info {
+    flex-grow: 1;
+    margin-right: 20px;
+    font-weight: 700;
+}
+
+.floating-ticket-banner .buy-tickets-btn {
+    background-color: var(--color-accent-gold);
+    color: #000;
+    padding: 10px 20px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+}
+
+.close-banner-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary-text);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 0 10px;
+    opacity: 0.7;
+}
+.close-banner-btn:hover {
+    color: var(--color-accent-gold);
+    opacity: 1;
+}
+
+
+/* ================================================= */
+/* --- CSS Khusus Halaman Atlet & Peringkat --- */
+/* ================================================= */
 .athlete-controls {
     display: flex;
     justify-content: space-between;
@@ -31,7 +654,7 @@
 
 .search-bar input {
     width: 100%;
-    padding: 10px 15px 10px 40px; /* Ruang untuk ikon */
+    padding: 10px 15px 10px 40px;
     border: 1px solid var(--color-tertiary-bg);
     background-color: var(--color-dark-bg);
     color: var(--color-primary-text);
@@ -59,7 +682,6 @@
     cursor: pointer;
     font-weight: 700;
     text-transform: uppercase;
-    /* Menyembunyikan panah default di beberapa browser */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -70,7 +692,6 @@
     padding-right: 30px;
 }
 
-/* --- Grid Atlet (Replikasi Tampilan Kartu) --- */
 .athlete-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -91,7 +712,7 @@
 }
 
 .card-image-wrapper {
-    height: 350px; /* Ketinggian kartu visual yang kuat */
+    height: 350px;
     overflow: hidden;
 }
 
@@ -130,7 +751,6 @@
     font-weight: 700;
 }
 
-
 /* --- Sistem Peringkat (Rankings) --- */
 .ranking-intro {
     text-align: center;
@@ -138,7 +758,6 @@
     color: var(--color-secondary-text);
 }
 
-/* Navigasi Tab Peringkat */
 .weight-class-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -161,16 +780,11 @@
     margin: 0 5px;
 }
 
-.tab-button:hover {
-    color: var(--color-primary-text);
-}
-
 .tab-button.active {
     color: var(--color-accent-gold);
     border-bottom: 3px solid var(--color-accent-gold);
 }
 
-/* Konten Divisi Peringkat */
 .ranking-division {
     display: none;
     padding: 20px 0;
@@ -187,12 +801,11 @@
     border-bottom: none;
 }
 
-/* Kartu Juara Dunia (CHAMPION) */
 .champion-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000; /* Hitam solid */
+    background-color: #000;
     border: 2px solid var(--color-accent-gold);
     padding: 15px 25px;
     margin-bottom: 30px;
@@ -216,7 +829,6 @@
     font-weight: 700;
 }
 
-/* Daftar Peringkat */
 .ranked-list {
     background-color: var(--color-secondary-bg);
     padding: 10px 0;
@@ -230,10 +842,6 @@
     transition: background-color 0.2s;
 }
 
-.ranked-item:last-child {
-    border-bottom: none;
-}
-
 .ranked-item:hover {
     background-color: var(--color-tertiary-bg);
 }
@@ -241,7 +849,7 @@
 .rank-number {
     font-size: 1.8em;
     font-family: var(--font-primary);
-    width: 60px; /* Lebar tetap untuk kolom peringkat */
+    width: 60px;
     color: var(--color-accent-gold);
 }
 
@@ -258,47 +866,9 @@
     font-weight: 700;
 }
 
-/* Media Query untuk Responsifitas Peringkat */
-@media (max-width: 600px) {
-    .athlete-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-bar {
-        max-width: none;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-    
-    .filters {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .custom-select {
-        width: 100%;
-    }
-
-    .champion-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    .champion-name {
-        margin: 10px 0;
-    }
-    
-    .rank-number {
-        font-size: 1.5em;
-        width: 40px;
-    }
-}
-
 /* ================================================= */
 /* --- CSS Khusus Halaman Acara (Events) --- */
 /* ================================================= */
-
-/* Navigasi Tab Events */
 .events-tab-navigation {
     text-align: center;
     margin-bottom: 40px;
@@ -327,15 +897,15 @@
     border-bottom: 3px solid var(--color-accent-gold);
 }
 
-.section-heading {
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 25px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--color-tertiary-bg);
+.section-heading-detail {
+    font-size: 2em;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-accent-gold);
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-/* Grid Acara */
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -343,7 +913,6 @@
     padding-bottom: 60px;
 }
 
-/* Kartu Acara */
 .event-card {
     background-color: var(--color-secondary-bg);
     overflow: hidden;
@@ -441,30 +1010,10 @@
     display: block;
 }
 
-/* Responsifitas untuk Events */
-@media (max-width: 768px) {
-    .events-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .events-tab-navigation {
-        justify-content: space-around;
-    }
-
-    .event-tab-btn {
-        font-size: 1em;
-        padding: 10px 15px;
-    }
-}
-/* ================================================= */
-/* --- CSS Khusus Halaman Detail Acara --- */
-/* ================================================= */
-
-/* Hero Banner Detail Acara */
+/* --- Detail Acara --- */
 .event-hero {
     position: relative;
-    height: 60vh; /* Tinggi visual yang kuat */
+    height: 60vh;
     min-height: 450px;
     background-color: #000;
 }
@@ -473,7 +1022,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.4); /* Sangat gelap untuk menonjolkan teks */
+    filter: brightness(0.4);
 }
 
 .hero-overlay {
@@ -484,7 +1033,7 @@
     bottom: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     display: flex;
-    align-items: flex-end; /* Konten di bagian bawah */
+    align-items: flex-end;
     padding-bottom: 50px;
 }
 
@@ -506,30 +1055,6 @@
     color: var(--color-secondary-text);
     max-width: 600px;
     margin-bottom: 20px;
-}
-
-.hero-actions .btn-tickets,
-.hero-actions .btn-highlights {
-    /* Menggunakan kembali styling tombol dari halaman events, tapi lebih besar */
-    padding: 12px 30px;
-    font-size: 1em;
-}
-
-/* Fight Card Section */
-.section-heading-detail {
-    font-size: 2em;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--color-accent-gold);
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.fight-card-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-bottom: 50px;
 }
 
 .fight-bout {
@@ -580,7 +1105,6 @@
     flex-shrink: 0;
 }
 
-/* Video Highlights */
 .video-highlights-section.hidden {
     display: none;
 }
@@ -590,33 +1114,113 @@
     box-shadow: 0 0 15px rgba(255, 196, 0, 0.2);
 }
 
-/* Responsifitas Detail Acara */
-@media (max-width: 900px) {
-    .event-detail-title {
-        font-size: 3em;
-    }
-    
-    .fight-bout {
-        flex-wrap: wrap;
-        text-align: center;
-    }
-    
-    .bout-type, .bout-weight {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-    }
+/* ================================================= */
+/* --- CSS Khusus Halaman Media (News & Videos) --- */
+/* ================================================= */
+.media-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
 
-    .fighters-matchup {
+.sort-button {
+    background: var(--color-secondary-bg);
+    color: var(--color-primary-text);
+    border: 1px solid var(--color-tertiary-bg);
+    padding: 10px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.media-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 0; 
+    padding-bottom: 50px;
+}
+
+.videos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- Media Queries (Responsif) --- */
+@media (max-width: 1024px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .main-story-card {
+        height: 350px;
+    }
+    .sub-story-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: unset;
+    }
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .coming-soon-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .timer-display {
         width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .time-unit {
+        font-size: 2.2em;
+    }
+    
+    .past-events-link, 
+    .coming-soon-banner .buy-tickets-btn {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    .floating-ticket-banner {
+        padding: 10px;
+    }
+    .ticket-info {
+        font-size: 0.8em;
+    }
+    .athlete-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-bar {
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .custom-select {
+        width: 100%;
+    }
+    .champion-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .champion-name {
         margin: 10px 0;
     }
-
-    .fighter-name {
+    .rank-number {
         font-size: 1.5em;
-    }
-    
-    .vs-text {
-        font-size: 1.2em;
+        width: 40px;
     }
 }
