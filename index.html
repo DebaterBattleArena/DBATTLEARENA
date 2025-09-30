@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body id="main-body">
 
     <header class="main-header">
         <div class="header-content container">
@@ -24,7 +24,10 @@
             </nav>
             <div class="header-actions">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
-                <button class="menu-toggle-btn" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
+                <button class="menu-toggle-btn" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars menu-icon-open"></i>
+                    <i class="fas fa-times menu-icon-close"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -65,7 +68,7 @@
         
         <section class="hero-section">
             <article class="main-story-card">
-                <img src="img/hero-main-mock.jpg" alt="Main Story" class="main-story-img">
+                <img data-src="img/hero-main-mock.jpg" alt="Main Story" class="main-story-img lazy-load-img">
                 <div class="story-overlay">
                     <span class="category-tag">NEWS</span>
                     <h1>PRANCHAI VS DI BELLA II: THE GOLDEN REMATCH</h1>
@@ -75,21 +78,21 @@
             
             <div class="sub-story-grid">
                 <article class="sub-story-card">
-                    <img src="img/hero-sub-1-mock.jpg" alt="Sub Story 1" class="sub-story-img">
+                    <img data-src="img/hero-sub-1-mock.jpg" alt="Sub Story 1" class="sub-story-img lazy-load-img">
                     <div class="story-info">
                         <span class="category-tag">INTERVIEW</span>
                         <h2><a href="#">ANDRADE: SAYA AKAN DOMINASI SEMUA ORANG</a></h2>
                     </div>
                 </article>
                 <article class="sub-story-card">
-                    <img src="img/hero-sub-2-mock.jpg" alt="Sub Story 2" class="sub-story-img">
+                    <img data-src="img/hero-sub-2-mock.jpg" alt="Sub Story 2" class="sub-story-img lazy-load-img">
                     <div class="story-info">
                         <span class="category-tag">MUAY THAI</span>
                         <h2><a href="#">RODTANG: KEMBALI MEREBUT TAHTA DARI HAGGERTY</a></h2>
                     </div>
                 </article>
                 <article class="sub-story-card">
-                    <img src="img/hero-sub-3-mock.jpg" alt="Sub Story 3" class="sub-story-img">
+                    <img data-src="img/hero-sub-3-mock.jpg" alt="Sub Story 3" class="sub-story-img lazy-load-img">
                     <div class="story-info">
                         <span class="category-tag">FEATURES</span>
                         <h2><a href="#">ATLET PEMUDA TERBAIK DI TAHUN 2025</a></h2>
@@ -115,7 +118,7 @@
             <section class="featured-section">
                 <h2 class="section-heading">FEATURED ATHLETE</h2>
                 <div class="featured-content">
-                    <img src="img/featured-oumar-mock.jpg" alt="Featured Oumar Kane" class="featured-img">
+                    <img data-src="img/featured-oumar-mock.jpg" alt="Featured Oumar Kane" class="featured-img lazy-load-img">
                     <div class="featured-text-box">
                         <span class="category-tag">HEAVYWEIGHT MMA</span>
                         <h3>OUSMANE "BOMBARDIER" KANE</h3>
@@ -144,21 +147,21 @@
                 <h2 class="section-heading">LATEST VIDEOS</h2>
                 <div class="video-grid">
                     <div class="video-item">
-                        <img src="img/video-thumb-1-mock.jpg" alt="Video 1" class="video-thumbnail">
+                        <img data-src="img/video-thumb-1-mock.jpg" alt="Video 1" class="video-thumbnail lazy-load-img">
                         <div class="video-info">
                             <span class="category-tag">HIGHLIGHTS</span>
                             <a href="#">The Best Knockouts of Q3 2025</a>
                         </div>
                     </div>
                     <div class="video-item">
-                        <img src="img/video-thumb-2-mock.jpg" alt="Video 2" class="video-thumbnail">
+                        <img data-src="img/video-thumb-2-mock.jpg" alt="Video 2" class="video-thumbnail lazy-load-img">
                         <div class="video-info">
                             <span class="category-tag">FULL FIGHT</span>
                             <a href="#">Nabil Anane vs Haggerty I</a>
                         </div>
                     </div>
                     <div class="video-item">
-                        <img src="img/video-thumb-3-mock.jpg" alt="Video 3" class="video-thumbnail">
+                        <img data-src="img/video-thumb-3-mock.jpg" alt="Video 3" class="video-thumbnail lazy-load-img">
                         <div class="video-info">
                             <span class="category-tag">TRAILER</span>
                             <a href="#">ONE Fight Night 37 Official Trailer</a>
@@ -192,14 +195,7 @@
         <button class="close-banner-btn"><i class="fas fa-times"></i></button>
     </div>
 
-    <script src="js/data.js"></script>
+    <script src="js/data.js"></script> 
     <script src="js/main.js"></script>
-    <script>
-        // JS sederhana untuk Scroll To Top
-        document.querySelector('.scroll-to-top').addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>
