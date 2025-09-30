@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlet - ONE Championship Clone</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content container">
+            <a href="../index.html" class="logo">ONE</a>
+            <nav class="desktop-nav">
+                </nav>
+            <div class="header-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="menu-toggle-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="athletes-main">
+        <div class="container">
+            <h1 class="page-title">OUR ATHLETES</h1>
+
+            <section class="athlete-controls">
+                <div class="search-bar">
+                    <input type="text" id="athlete-search" placeholder="Search Athlete Name...">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <div class="filters">
+                    <select id="weight-class-filter" class="custom-select">
+                        <option value="">ALL WEIGHT CLASSES</option>
+                        <option value="Atomweight">ATOMWEIGHT</option>
+                        <option value="Bantamweight">BANTAMWEIGHT</option>
+                        <option value="Featherweight">FEATHERWEIGHT</option>
+                        <option value="Heavyweight">HEAVYWEIGHT</option>
+                    </select>
+
+                    <select id="sport-filter" class="custom-select">
+                        <option value="">ALL SPORTS</option>
+                        <option value="MMA">MMA</option>
+                        <option value="Muay Thai">MUAY THAI</option>
+                        <option value="Kickboxing">KICKBOXING</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="athlete-grid" id="athlete-list">
+                <a href="athlete-profile.html?id=1" class="athlete-card">
+                    <div class="card-image-wrapper">
+                        <img src="../img/athlete-andrade-mock.jpg" alt="Fabricio Andrade" class="athlete-img">
+                    </div>
+                    <div class="athlete-info">
+                        <span class="athlete-name">FABRICIO ANDRADE</span>
+                        <span class="athlete-class">BANTAMWEIGHT MMA</span>
+                    </div>
+                </a>
+                
+                <a href="athlete-profile.html?id=2" class="athlete-card">
+                    <div class="card-image-wrapper">
+                        <img src="../img/athlete-lee-mock.jpg" alt="Angela Lee" class="athlete-img">
+                    </div>
+                    <div class="athlete-info">
+                        <span class="athlete-name">ANGELA LEE</span>
+                        <span class="athlete-class">ATOMWEIGHT MMA</span>
+                    </div>
+                </a>
+                
+                </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/athletes.js"></script> </body>
+</html>
