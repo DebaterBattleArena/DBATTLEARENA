@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peringkat - ONE Championship Clone</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        </header>
+
+    <main class="rankings-main">
+        <div class="container">
+            <h1 class="page-title">OFFICIAL ATHLETE RANKINGS</h1>
+            
+            <p class="ranking-intro">Peringkat yang diperbarui secara dinamis setelah setiap acara ONE Championship.</p>
+
+            <nav class="weight-class-tabs" id="weight-class-tabs">
+                <button class="tab-button active" data-division="Flyweight-MMA">Flyweight MMA</button>
+                <button class="tab-button" data-division="Bantamweight-MMA">Bantamweight MMA</button>
+                <button class="tab-button" data-division="Featherweight-MuayThai">Featherweight MT</button>
+                <button class="tab-button" data-division="Strawweight-KB">Strawweight KB</button>
+                </nav>
+
+            <section class="rankings-list-container" id="rankings-container">
+                
+                <div class="ranking-division active" id="ranking-Flyweight-MMA">
+                    <h2 class="division-title">ONE Flyweight MMA World Rankings</h2>
+                    
+                    <article class="champion-card">
+                        <span class="rank-label">CHAMPION</span>
+                        <a href="athlete-profile.html?id=dj" class="champion-name">Demetrious "Mighty Mouse" Johnson</a>
+                        <span class="champion-belt"><i class="fas fa-crown"></i> WORLD CHAMPION</span>
+                    </article>
+
+                    <div class="ranked-list">
+                        <div class="ranked-item">
+                            <span class="rank-number">#1</span>
+                            <a href="athlete-profile.html?id=1" class="ranked-athlete">Kairat Akhmetov</a>
+                            <span class="athlete-country">KAZ</span>
+                        </div>
+                        <div class="ranked-item">
+                            <span class="rank-number">#2</span>
+                            <a href="athlete-profile.html?id=2" class="ranked-athlete">Danny Kingad</a>
+                            <span class="athlete-country">PHL</span>
+                        </div>
+                        </div>
+                </div>
+                
+                <div class="ranking-division" id="ranking-Bantamweight-MMA">
+                    </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/rankings.js"></script> </body>
+</html>
