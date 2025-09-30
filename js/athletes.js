@@ -1,22 +1,11 @@
-/**
- * js/athletes.js
- * Skrip untuk mengelola tampilan, pencarian, dan filter di halaman atlet.
- * Membutuhkan ATHLETES_DATA dari data.js
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Pastikan data dimuat
-    if (typeof ATHLETES_DATA === 'undefined') {
-        console.error("ATHLETES_DATA tidak ditemukan. Pastikan data.js dimuat.");
-        return;
-    }
+    if (typeof ATHLETES_DATA === 'undefined') return;
 
     const athleteListContainer = document.getElementById('athlete-list');
     const searchInput = document.getElementById('athlete-search');
     const weightFilter = document.getElementById('weight-class-filter');
     const sportFilter = document.getElementById('sport-filter');
 
-    // Fungsi untuk membuat markup kartu atlet
     const createAthleteCard = (athlete) => {
         return `
             <a href="athlete-profile.html?id=${athlete.id}" class="athlete-card">
@@ -31,21 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
-    // Fungsi utama untuk me-render dan memfilter
     const renderAthletes = (data) => {
-        // Membersihkan kontainer
         athleteListContainer.innerHTML = '';
-        
         if (data.length === 0) {
-            athleteListContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--color-secondary-text); margin-top: 50px;">Tidak ada atlet yang ditemukan sesuai kriteria.</p>';
+            athleteListContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--color-secondary-text); margin-top: 50px;">Tidak ada atlet yang ditemukan.</p>';
             return;
         }
-
-        const cards = data.map(createAthleteCard).join('');
-        athleteListContainer.innerHTML = cards;
+        athleteListContainer.innerHTML = data.map(createAthleteCard).join('');
     };
 
-    // Fungsi filter kompleks
     const applyFilters = () => {
         const searchTerm = searchInput.value.toLowerCase().trim();
         const selectedWeight = weightFilter.value.toLowerCase();
@@ -55,18 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const matchesSearch = athlete.name.toLowerCase().includes(searchTerm);
             const matchesWeight = selectedWeight === '' || athlete.weight_class.toLowerCase() === selectedWeight;
             const matchesSport = selectedSport === '' || athlete.sport.toLowerCase() === selectedSport;
-
             return matchesSearch && matchesWeight && matchesSport;
         });
-
         renderAthletes(filteredData);
     };
 
-    // Event Listeners untuk interaksi pengguna
-    searchInput.addEventListener('input', applyFilters);
-    weightFilter.addEventListener('change', applyFilters);
-    sportFilter.addEventListener('change', applyFilters);
-
-    // Render data awal saat halaman dimuat
-    renderAthletes(ATHLETES_DATA);
+    if(athleteListContainer) {
+        searchInput.addEventListener('input', applyFilters);
+        weightFilter.addEventListener('change', applyFilters);
+        sportFilter.addEventListener('change', applyFilters);
+        renderAthletes(ATHLETES_DATA);
+    }
 });
