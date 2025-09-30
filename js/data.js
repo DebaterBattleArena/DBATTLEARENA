@@ -1,69 +1,16 @@
 /**
- * js/data.js
- * Data Tiruan untuk Klon ONE Championship (Debater Battle Arena)
- * Mendukung Halaman Atlet, Peringkat, dan Acara
+ * Data Tiruan untuk Klon ONE Championship
  */
 
-// Data Profil Atlet
 const ATHLETES_DATA = [
-    { 
-        id: 'andrade', 
-        name: "Fabricio Andrade", 
-        country: "Brazil", 
-        weight_class: "Bantamweight", 
-        sport: "MMA", 
-        record: "9-2-0", 
-        image: "../img/athlete-andrade-mock.jpg" 
-    },
-    { 
-        id: 'lee', 
-        name: "Angela Lee", 
-        country: "Singapore / United States", 
-        weight_class: "Atomweight", 
-        sport: "MMA", 
-        record: "11-3-0", 
-        image: "../img/athlete-lee-mock.jpg" 
-    },
-    { 
-        id: 'johnson', 
-        name: "Demetrious Johnson", 
-        country: "United States", 
-        weight_class: "Flyweight", 
-        sport: "MMA", 
-        record: "25-4-1", 
-        image: "../img/athlete-johnson-mock.jpg" 
-    },
-    { 
-        id: 'haggerty', 
-        name: "Jonathan Haggerty", 
-        country: "United Kingdom", 
-        weight_class: "Bantamweight", 
-        sport: "Muay Thai", 
-        record: "20-4-0 (MT/KB)", 
-        image: "../img/athlete-haggerty-mock.jpg" 
-    },
-    { 
-        id: 'anane', 
-        name: "Nabil Anane", 
-        country: "Algeria", 
-        weight_class: "Flyweight", 
-        sport: "Muay Thai", 
-        record: "34-6-0 (MT)", 
-        image: "../img/athlete-anane-mock.jpg" 
-    },
-    { 
-        id: 'di-bella', 
-        name: "Jonathan Di Bella", 
-        country: "Canada", 
-        weight_class: "Strawweight", 
-        sport: "Kickboxing", 
-        record: "11-0-0", 
-        image: "../img/athlete-di-bella-mock.jpg" 
-    }
-    // Tambahkan 50+ atlet lain untuk tampilan profesional
+    { id: 'andrade', name: "Fabricio Andrade", country: "Brazil", weight_class: "Bantamweight", sport: "MMA", record: "9-2-0", image: "../img/athlete-andrade-mock.jpg" },
+    { id: 'lee', name: "Angela Lee", country: "Singapore / United States", weight_class: "Atomweight", sport: "MMA", record: "11-3-0", image: "../img/athlete-lee-mock.jpg" },
+    { id: 'johnson', name: "Demetrious Johnson", country: "United States", weight_class: "Flyweight", sport: "MMA", record: "25-4-1", image: "../img/athlete-johnson-mock.jpg" },
+    { id: 'haggerty', name: "Jonathan Haggerty", country: "United Kingdom", weight_class: "Bantamweight", sport: "Muay Thai", record: "20-4-0 (MT/KB)", image: "../img/athlete-haggerty-mock.jpg" },
+    { id: 'anane', name: "Nabil Anane", country: "Algeria", weight_class: "Flyweight", sport: "Muay Thai", record: "34-6-0 (MT)", image: "../img/athlete-anane-mock.jpg" },
+    { id: 'di-bella', name: "Jonathan Di Bella", country: "Canada", weight_class: "Strawweight", sport: "Kickboxing", record: "11-0-0", image: "../img/athlete-di-bella-mock.jpg" }
 ];
 
-// Data Peringkat (Diatur berdasarkan Divisi-Sport)
 const RANKINGS_DATA = {
     'Flyweight-MMA': {
         champion: { name: 'Demetrious "Mighty Mouse" Johnson', country_code: 'USA' },
@@ -71,8 +18,6 @@ const RANKINGS_DATA = {
             { rank: 1, athlete_id: 'akhmetov', name: 'Kairat Akhmetov', country_code: 'KAZ' },
             { rank: 2, athlete_id: 'kingad', name: 'Danny Kingad', country_code: 'PHL' },
             { rank: 3, athlete_id: 'moraes', name: 'Adriano Moraes', country_code: 'BRA' },
-            { rank: 4, athlete_id: 'rebollosa', name: 'Gustavo Rebollosa', country_code: 'MEX' },
-            { rank: 5, athlete_id: 'wakamatsu', name: 'Yuya Wakamatsu', country_code: 'JPN' },
         ]
     },
     'Bantamweight-MMA': {
@@ -80,49 +25,16 @@ const RANKINGS_DATA = {
         ranked: [
             { rank: 1, athlete_id: 'kwan', name: 'Kwon Won Il', country_code: 'KOR' },
             { rank: 2, athlete_id: 'lineker', name: 'John Lineker', country_code: 'BRA' },
-            { rank: 3, athlete_id: 'belingon', name: 'Kevin Belingon', country_code: 'PHL' },
         ]
     },
     'Bantamweight-MuayThai': {
         champion: { name: 'Jonathan Haggerty', country_code: 'UK' },
         ranked: [
             { rank: 1, athlete_id: 'rodtang', name: 'Rodtang Jitmuangnon', country_code: 'THA' },
-            { rank: 2, athlete_id: 'anane', name: 'Nabil Anane', country_code: 'ALG' },
-            // ...
-        ]
-    },
-    'Strawweight-Kickboxing': {
-        champion: { name: 'Jonathan Di Bella', country_code: 'CAN' },
-        ranked: [
-            { rank: 1, athlete_id: 'petchdam', name: 'Petchdam Petchyindee', country_code: 'THA' },
-            // ...
         ]
     }
 };
 
-// Data Acara (Untuk halaman events.html)
-const EVENTS_DATA = [
-    { 
-        id: 101, 
-        title: "ONE Fight Night 37: Pranchai vs. Di Bella II", 
-        date: "2025-10-04T08:00:00", 
-        location: "Lumpinee Stadium, Bangkok", 
-        status: "Upcoming",
-        main_event: "Pranchai PK. Saenchai vs. Jonathan Di Bella II"
-    },
-    { 
-        id: 102, 
-        title: "ONE 172: Lineker vs. Andrade", 
-        date: "2025-09-07T19:30:00", 
-        location: "Singapore Indoor Stadium", 
-        status: "Past",
-        main_event: "John Lineker vs. Fabricio Andrade"
-    }
-    // Tambahkan lebih banyak acara
-];
-// ... (Bagian ATHLETES_DATA dan RANKINGS_DATA di atas tetap sama) ...
-
-// Data Acara (events.js akan menggunakannya)
 const EVENTS_DATA = [
     { 
         id: 101, 
@@ -132,14 +44,11 @@ const EVENTS_DATA = [
         status: "Upcoming",
         main_event: "Pranchai PK. Saenchai vs. Jonathan Di Bella II",
         description: "Saksikan pertarungan ulang yang eksplosif untuk gelar Kickboxing Strawweight World Championship! Ditambah dengan kartu pertarungan penuh yang menampilkan bintang-bintang terbaik ONE Championship.",
-        // DATA KHUSUS DETAIL ACARA
         fight_card: [
             { type: "WORLD TITLE", fighters: ["Pranchai PK. Saenchai", "Jonathan Di Bella"], weight: "Strawweight Kickboxing" },
             { type: "FEATURE BOUT", fighters: ["Anissa Meksen", "Vero"], weight: "Atomweight Muay Thai" },
-            { type: "MMA", fighters: ["Saygid Izagakhmaev", "Shinya Aoki"], weight: "Lightweight MMA" },
-            { type: "PRELIM", fighters: ["Stamp Fairtex", "Alyse Anderson"], weight: "Atomweight MMA" },
         ],
-        highlights_url: null, // Acara mendatang tidak punya sorotan
+        highlights_url: null,
         card_image: "../img/event-banner-mock-1-detail.jpg"
     },
     { 
@@ -150,13 +59,24 @@ const EVENTS_DATA = [
         status: "Past",
         main_event: "John Lineker vs. Fabricio Andrade",
         description: "Malam legendaris pertarungan MMA! Pertarungan ulang yang brutal memperebutkan gelar Bantamweight World Championship.",
-        // DATA KHUSUS DETAIL ACARA
         fight_card: [
             { type: "MAIN EVENT", fighters: ["John Lineker", "Fabricio Andrade"], weight: "Bantamweight MMA" },
             { type: "MMA", fighters: ["Thang Le", "Ilya Freymanov"], weight: "Featherweight MMA" },
         ],
-        highlights_url: "https://www.youtube.com/embed/exampleVideoID", // URL embed video
+        highlights_url: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Contoh URL embed
         card_image: "../img/event-banner-mock-2-detail.jpg"
     }
 ];
-// ...
+
+const NEWS_DATA = [
+    { id: 1, title: '5 Reasons To Watch ONE Fight Night 37', category: 'Features', date: 'SEP 29, 2025', is_featured: true },
+    { id: 2, title: 'Nabil Anane To Defend Title Against Jonathan Haggerty', category: 'News', date: 'SEP 27, 2025', is_featured: false },
+    { id: 3, title: 'EXCLUSIVE: Meksen Wants World Title Shot Next', category: 'Interviews', date: 'SEP 25, 2025', is_featured: false },
+    { id: 4, title: 'Big Announcement about Ranks', category: 'News', date: 'SEP 20, 2025', is_featured: false },
+];
+
+const VIDEO_DATA = [
+    { id: 1, title: 'No one saw it coming - Shock KO Highlights', type: 'Highlights', date: 'SEP 30, 2025', views: 500000, thumbnail: '../img/video-thumbnail-1.jpg' },
+    { id: 2, title: 'Mighty Mouse vs Moraes I (Full Fight)', type: 'Full Fights', date: 'SEP 15, 2025', views: 1500000, thumbnail: '../img/video-thumbnail-2.jpg' },
+    { id: 3, title: 'ONE Fight Night 37 Official Trailer', type: 'Trailer', date: 'OCT 1, 2025', views: 50000, thumbnail: '../img/video-thumbnail-3.jpg' },
+];
