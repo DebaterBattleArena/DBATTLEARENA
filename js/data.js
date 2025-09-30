@@ -120,3 +120,43 @@ const EVENTS_DATA = [
     }
     // Tambahkan lebih banyak acara
 ];
+// ... (Bagian ATHLETES_DATA dan RANKINGS_DATA di atas tetap sama) ...
+
+// Data Acara (events.js akan menggunakannya)
+const EVENTS_DATA = [
+    { 
+        id: 101, 
+        title: "ONE Fight Night 37: Pranchai vs. Di Bella II", 
+        date: "2025-10-04T08:00:00", 
+        location: "Lumpinee Stadium, Bangkok", 
+        status: "Upcoming",
+        main_event: "Pranchai PK. Saenchai vs. Jonathan Di Bella II",
+        description: "Saksikan pertarungan ulang yang eksplosif untuk gelar Kickboxing Strawweight World Championship! Ditambah dengan kartu pertarungan penuh yang menampilkan bintang-bintang terbaik ONE Championship.",
+        // DATA KHUSUS DETAIL ACARA
+        fight_card: [
+            { type: "WORLD TITLE", fighters: ["Pranchai PK. Saenchai", "Jonathan Di Bella"], weight: "Strawweight Kickboxing" },
+            { type: "FEATURE BOUT", fighters: ["Anissa Meksen", "Vero"], weight: "Atomweight Muay Thai" },
+            { type: "MMA", fighters: ["Saygid Izagakhmaev", "Shinya Aoki"], weight: "Lightweight MMA" },
+            { type: "PRELIM", fighters: ["Stamp Fairtex", "Alyse Anderson"], weight: "Atomweight MMA" },
+        ],
+        highlights_url: null, // Acara mendatang tidak punya sorotan
+        card_image: "../img/event-banner-mock-1-detail.jpg"
+    },
+    { 
+        id: 102, 
+        title: "ONE 172: Lineker vs. Andrade", 
+        date: "2025-09-07T19:30:00", 
+        location: "Singapore Indoor Stadium", 
+        status: "Past",
+        main_event: "John Lineker vs. Fabricio Andrade",
+        description: "Malam legendaris pertarungan MMA! Pertarungan ulang yang brutal memperebutkan gelar Bantamweight World Championship.",
+        // DATA KHUSUS DETAIL ACARA
+        fight_card: [
+            { type: "MAIN EVENT", fighters: ["John Lineker", "Fabricio Andrade"], weight: "Bantamweight MMA" },
+            { type: "MMA", fighters: ["Thang Le", "Ilya Freymanov"], weight: "Featherweight MMA" },
+        ],
+        highlights_url: "https://www.youtube.com/embed/exampleVideoID", // URL embed video
+        card_image: "../img/event-banner-mock-2-detail.jpg"
+    }
+];
+// ...
