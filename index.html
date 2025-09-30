@@ -5,140 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONE Championship Clone - Debater Battle Arena</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="header-content container">
-            <a href="index.html" class="logo">ONE</a> <nav class="desktop-nav">
+            <a href="index.html" class="logo">ONE</a>
+            <nav class="desktop-nav">
                 <ul>
-                    <li><a href="pages/events.html">EVENTS</a></li>
-                    <li><a href="pages/tickets.html">TICKETS</a></li>
-                    <li><a href="pages/athletes.html">ATHLETES</a></li>
-                    <li><a href="#">READ <i class="fas fa-caret-down"></i></a></li>
-                    <li><a href="#">WATCH <i class="fas fa-caret-down"></i></a></li>
-                    </ul>
+                    <li><a href="pages/events.html">Events</a></li>
+                    <li><a href="pages/athletes.html">Athletes</a></li>
+                    <li><a href="pages/rankings.html">Rankings</a></li>
+                    <li><a href="pages/news.html">News</a></li>
+                    <li><a href="pages/videos.html">Videos</a></li>
+                </ul>
             </nav>
             <div class="header-actions">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
-                <button class="menu-toggle-btn"><i class="fas fa-bars"></i></button>
+                <button class="menu-toggle-btn" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </header>
+    
+    <nav class="mobile-nav" id="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li><a href="pages/events.html"><i class="fas fa-calendar-alt"></i> EVENTS</a></li>
+            <li><a href="#"><i class="fas fa-ticket-alt"></i> TICKETS</a></li>
+            <li><a href="pages/athletes.html"><i class="fas fa-user-friends"></i> ATHLETES</a></li>
+            
+            <li class="mobile-dropdown-toggle" data-target="read-submenu">
+                <a href="#">READ <i class="fas fa-caret-down"></i></a>
+                <ul class="mobile-submenu" id="read-submenu">
+                    <li><a href="pages/news.html">Latest News</a></li>
+                    <li><a href="#">Features</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown-toggle" data-target="watch-submenu">
+                <a href="#">WATCH <i class="fas fa-caret-down"></i></a>
+                <ul class="mobile-submenu" id="watch-submenu">
+                    <li><a href="pages/videos.html">All Videos</a></li>
+                    <li><a href="#">Highlights</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="pages/rankings.html"><i class="fas fa-trophy"></i> RANKINGS</a></li>
+        </ul>
+        <div class="mobile-social-footer">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </nav>
 
-    <nav class="mobile-nav">
-        </nav>
 
     <main>
         
         <section class="hero-section">
-            <div class="main-story-card">
-                <img src="img/hero-bg-anissa.jpg" alt="Anissa Meksen vs. Myanmar Sensation" class="main-story-img"> <div class="story-overlay">
+            <article class="main-story-card">
+                <img src="img/hero-main-mock.jpg" alt="Main Story" class="main-story-img">
+                <div class="story-overlay">
                     <span class="category-tag">NEWS</span>
-                    <h1><a href="#">Legendary Striker Anissa Meksen To Battle Myanmar Sensation Vero At ONE Fight Night 37</a></h1>
-                    <a href="#" class="read-more-btn">READ <i class="fas fa-arrow-right"></i></a>
+                    <h1>PRANCHAI VS DI BELLA II: THE GOLDEN REMATCH</h1>
+                    <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div>
-
-            <div class="sub-story-grid">
-                <div class="sub-story-card">
-                    <img src="img/sub-story-fabrico.jpg" alt="Fabrico Andrade" class="sub-story-img">
-                    <div class="story-info">
-                        <h2><a href="#">'I'm Looking Forward To It' – Eduardo Granzotto Confident He Can Beat Fabricio Andreu Again At ONE Fight Night 36</a></h2>
-                    </div>
-                </div>
-                <div class="sub-story-card">...</div>
-                <div class="sub-story-card">...</div>
-            </div>
-        </section>
-
-        <section class="coming-soon-banner container">
-            <div class="timer-display">
-                <span class="timer-label">COMING SOON</span>
-                <div class="countdown-time">
-                    <span id="days" class="time-unit">03 <span class="unit-label">DAYS</span></span>
-                    <span id="hrs" class="time-unit">18 <span class="unit-label">HRS</span></span>
-                    <span id="min" class="time-unit">09 <span class="unit-label">MIN</span></span>
-                </div>
-            </div>
-            <a href="#" class="past-events-link">PAST EVENTS <i class="fas fa-chevron-right"></i></a>
-            <a href="#" class="buy-tickets-btn">BUY TICKETS</a>
-        </section>
-        
-        <section class="featured-section container">
-            <h2>FEATURED</h2>
-            <div class="featured-content">
-                <img src="img/featured-omar-kane.jpg" alt="Reug Reug Oumar Kane" class="featured-img">
-                <div class="featured-text-box">
-                    <h3>"Reug Reug" Oumar Kane</h3>
-                    </div>
-            </div>
-        </section>
-
-        <section class="latest-stories-section container">
-            <h2>LATEST STORIES</h2>
-            <article class="story-item">
-                <span class="story-category">FEATURES</span>
-                <span class="story-date">SEP 29</span>
-                <a href="#">5 Reasons To Watch ONE Fight Night 36: Pranchai Vs. Di Bella II On Prime Video</a>
-                </article>
-            <article class="story-item">
-                <span class="story-category">NEWS</span>
-                <span class="story-date">SEP 27</span>
-                <a href="#">Nabil Anane To Defend Jonathan Haggerty At ONE Muay Thai World Title Against Jonathan Haggerty At ONE 173</a>
             </article>
-            <button class="more-stories-btn">MORE STORIES</button>
+            
+            <div class="sub-story-grid">
+                <article class="sub-story-card">
+                    <img src="img/hero-sub-1-mock.jpg" alt="Sub Story 1" class="sub-story-img">
+                    <div class="story-info">
+                        <span class="category-tag">INTERVIEW</span>
+                        <h2><a href="#">ANDRADE: SAYA AKAN DOMINASI SEMUA ORANG</a></h2>
+                    </div>
+                </article>
+                <article class="sub-story-card">
+                    <img src="img/hero-sub-2-mock.jpg" alt="Sub Story 2" class="sub-story-img">
+                    <div class="story-info">
+                        <span class="category-tag">MUAY THAI</span>
+                        <h2><a href="#">RODTANG: KEMBALI MEREBUT TAHTA DARI HAGGERTY</a></h2>
+                    </div>
+                </article>
+                <article class="sub-story-card">
+                    <img src="img/hero-sub-3-mock.jpg" alt="Sub Story 3" class="sub-story-img">
+                    <div class="story-info">
+                        <span class="category-tag">FEATURES</span>
+                        <h2><a href="#">ATLET PEMUDA TERBAIK DI TAHUN 2025</a></h2>
+                    </div>
+                </article>
+            </div>
         </section>
 
-        <section class="videos-section container">
-            <h2>VIDEOS</h2>
-            <div class="video-grid">
-                <div class="video-item">
-                    <img src="img/video-thumbnail-1.jpg" alt="No one saw it coming" class="video-thumbnail">
-                    <div class="video-info">
-                        <span class="video-date">SEP 30</span>
-                        <a href="#">No one saw it coming</a>
+        <div class="container coming-soon-banner">
+            <div class="timer-display">
+                <span class="timer-label">NEXT EVENT:</span>
+                <div class="countdown-time">
+                    <div class="time-unit" id="days">00 <span class="unit-label">DAYS</span></div>
+                    <div class="time-unit" id="hrs">00 <span class="unit-label">HRS</span></div>
+                    <div class="time-unit" id="min">00 <span class="unit-label">MIN</span></div>
+                </div>
+            </div>
+            <a href="pages/events.html" class="past-events-link">PAST EVENTS <i class="fas fa-chevron-right"></i></a>
+            <button class="buy-tickets-btn">BUY TICKETS</button>
+        </div>
+        
+        <div class="container">
+            <section class="featured-section">
+                <h2 class="section-heading">FEATURED ATHLETE</h2>
+                <div class="featured-content">
+                    <img src="img/featured-oumar-mock.jpg" alt="Featured Oumar Kane" class="featured-img">
+                    <div class="featured-text-box">
+                        <span class="category-tag">HEAVYWEIGHT MMA</span>
+                        <h3>OUSMANE "BOMBARDIER" KANE</h3>
                     </div>
                 </div>
-                <div class="video-item">
-                    <img src="img/video-thumbnail-2.jpg" alt="The most shocking knockout" class="video-thumbnail">
-                    <div class="video-info">
-                        <span class="video-date">SEP 30</span>
-                        <a href="#">THE MOST SHOCKING Knockout in MMA: Demetrious Johnson vs. Adriano Moraes was WILD</a>
-                    </div>
-                </div>
-                </div>
-            <button class="more-videos-btn">MORE VIDEOS</button>
-        </section>
+            </section>
 
+            <section class="latest-stories-section">
+                <h2 class="section-heading">LATEST STORIES</h2>
+                <div class="latest-stories-list">
+                    <div class="story-item">
+                        <span class="story-category">MMA</span>
+                        <span class="story-date">SEP 30, 2025</span>
+                        <a href="#">Johnson Siap Hadapi Tantangan Baru di Flyweight</a>
+                    </div>
+                    <div class="story-item">
+                        <span class="story-category">KICKBOXING</span>
+                        <span class="story-date">SEP 29, 2025</span>
+                        <a href="#">Di Bella Mengincar Pensiun Setelah Pertarungan Kedua</a>
+                    </div>
+                    </div>
+                <button class="more-stories-btn">LOAD MORE STORIES</button>
+            </section>
+
+            <section class="videos-section">
+                <h2 class="section-heading">LATEST VIDEOS</h2>
+                <div class="video-grid">
+                    <div class="video-item">
+                        <img src="img/video-thumb-1-mock.jpg" alt="Video 1" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="category-tag">HIGHLIGHTS</span>
+                            <a href="#">The Best Knockouts of Q3 2025</a>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <img src="img/video-thumb-2-mock.jpg" alt="Video 2" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="category-tag">FULL FIGHT</span>
+                            <a href="#">Nabil Anane vs Haggerty I</a>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <img src="img/video-thumb-3-mock.jpg" alt="Video 3" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="category-tag">TRAILER</span>
+                            <a href="#">ONE Fight Night 37 Official Trailer</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="more-videos-btn">LOAD MORE VIDEOS</button>
+            </section>
+        </div>
     </main>
     
     <footer class="main-footer">
-        <div class="footer-content container">
-            <a href="#" class="scroll-to-top">↑ SCROLL TO TOP</a>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-weibo"></i></a>
-            </div>
-            <p>© 2025 ONE Championship™. All Rights Reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-            </div>
+        <a href="#top" class="scroll-to-top">BACK TO TOP <i class="fas fa-arrow-up"></i></a>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
+        <div class="footer-links">
+            <a href="#">TOS</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+        </div>
+        <p>© 2025 ONE CHAMPIONSHIP CLONE. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <div class="floating-ticket-banner">
-        <span class="ticket-info">ONE 173 Tickets Now Available To The General Public</span>
-        <button class="buy-tickets-btn">BUY TICKETS</button>
-        <button class="close-banner-btn">✕</button>
+        <span class="ticket-info">JUAL TIKET: DAPATKAN TIKET ANDA UNTUK ACARA BERIKUTNYA!</span>
+        <button class="buy-tickets-btn">BELI SEKARANG</button>
+        <button class="close-banner-btn"><i class="fas fa-times"></i></button>
     </div>
 
+    <script src="js/data.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // JS sederhana untuk Scroll To Top
+        document.querySelector('.scroll-to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
